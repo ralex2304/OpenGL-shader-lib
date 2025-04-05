@@ -1,10 +1,11 @@
 #include <cassert>
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
 
 #include <OpenGL-shader-lib/OpenGL-shader-lib.hpp>
 
-#include <iostream>
+using namespace OpenGLShaderLib;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void process_input(GLFWwindow *window);
@@ -38,19 +39,21 @@ int main() {
     }
 
     Shader shader(ASSETS_PATH"/shaders/test.vs", ASSETS_PATH"/shaders/test.fs");
-    
-    float vertices[] = {
+
+    constexpr float vertices[] = {
         0.5f, 0.5f, 0.0f,
         0.5f, -0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,
         -0.5f, 0.5f, 0.0f,
     };
-    unsigned int indices[] = {
+    constexpr unsigned int indices[] = {
         0, 1, 3,
         1, 2, 3,
     };
 
-    unsigned int VBO = 0, VAO = 0, EBO = 0;
+    unsigned int VBO = 0;
+    unsigned int VAO = 0;
+    unsigned int EBO = 0;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &EBO);
