@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <glad/gl.h>
 
 #include <OpenGL-shader-lib/OpenGL-shader-lib.hpp>
 
